@@ -16,8 +16,8 @@ else
 	PYTHON = python3
 endif
 
-switch-sdcc-gas::
-	$(LN) .make/Makefile-sdcc-gas Makefile || $(CP) .make/Makefile-sdcc-gas Makefile
+switch-sdccrm:
+	$(LN) .make/Makefile-sdccrm Makefile || $(CP) .make/Makefile-sdccrm Makefile
   
 switch-sdcc-gas::
 	$(LN) .make/Makefile-sdcc-gas Makefile || $(CP) .make/Makefile-sdcc-gas Makefile
