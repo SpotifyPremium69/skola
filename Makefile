@@ -16,8 +16,11 @@ else
 	PYTHON = python3
 endif
 
-switch-sdccrm:
+switch-sdccrm:: spl
 	$(LN) .make/Makefile-sdccrm Makefile || $(CP) .make/Makefile-sdccrm Makefile
   
-switch-sdcc-gas::
+switch-sdcc-gas:: spl
 	$(LN) .make/Makefile-sdcc-gas Makefile || $(CP) .make/Makefile-sdcc-gas Makefile
+
+spl::
+	bash .make/spl.sh
