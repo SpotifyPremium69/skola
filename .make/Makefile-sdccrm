@@ -50,6 +50,8 @@ ifeq ($(OS),Windows_NT)
 	CC = $(CC_ROOT)/bin/sdcc
 	LN = cp
 	PYTHON = python
+	STVP = "/c/Program Files (x86)/STMicroelectronics/st_toolset/stvp/STVP_CmdLine.exe"
+
 else
     uname_S := $(shell uname -s)
 	
@@ -136,7 +138,8 @@ clean::
 	rm -Rf $(OUTPUT_DIR)
 
 flash: $(TARGET).ihx
-	$(OPENOCD) -c "init" -c "program_device $(TARGET).ihx 0"
+	$(STVP) -BoardName=ST-LINK -Device=STM8S103F3 -Port=USB -ProgMode=SWIM -no_loop -no_log -FileProg=$(TARGET).ihx
+	#$(OPENOCD) -c "init" -c "program_device $(TARGET).ihx 0"
 
 flash2: $(TARGET).ihx
 	stm8flash -c $(STLINK) -p $(DEVICE_FLASH) -s flash -w $(TARGET).ihx
