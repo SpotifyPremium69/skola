@@ -21,7 +21,7 @@ void setup(void)
 {
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);      // taktovani MCU na 16MHz
     GPIO_Init(LED_PORT, LED_PIN, GPIO_MODE_OUT_PP_LOW_SLOW);
-
+    Uart2
     init_milis();
     //init_uart1();
 }
@@ -89,6 +89,15 @@ int main(void)
     for (short i = 0; i < N; i++) {
         GPIO_Init(port[i], pin[i], GPIO_MODE_OUT_PP_LOW_SLOW);
     }
+
+    /*for (;;) {*/
+    /*    all_on();*/
+    /*    delay_ms(333);*/
+    /*    delay_ms(333);*/
+    /*    delay_ms(333);*/
+    /*    all_off();*/
+    /*    delay_ms(111);*/
+    /*}*/
 
     short i = 0;
     while (1) {
